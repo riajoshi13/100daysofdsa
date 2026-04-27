@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+
+    long long n;
+    scanf("%lld", &n);
+
+    long long low = 0, high = n;
+    long long ans = 0;
+
+    while (low <= high) {
+
+        long long mid = (low + high) / 2;
+
+        if (mid * mid <= n) {
+            ans = mid;          // store possible answer
+            low = mid + 1;      // move right
+        } else {
+            high = mid - 1;     // move left
+        }
+    }
+
+    printf("%lld", ans);
+
+    return 0;
+}
